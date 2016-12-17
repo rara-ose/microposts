@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
@@ -7,6 +6,9 @@
         <%= @user.name %>
       </h1>
     </section>
+    <ul>
+      <li>Location：<%= @user.location %></li>
+    </ul>
   </aside>
   <div class="col-md-8">
     <% if @user.microposts.any? %>
@@ -17,11 +19,3 @@
     <% end %>
   </div>
 </div>
-=======
-<h1>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-  <li>Location：<%= @user.location %></li>
-</ul>
-</h1>
->>>>>>> user-profile
