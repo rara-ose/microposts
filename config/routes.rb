@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :users do
+   member do
+     get :followings, :followers
+   end
+ end
   root to: 'static_pages#home'
   get    'signup', to: 'users#new'
   get    'login' , to: 'sessions#new'
@@ -7,6 +12,5 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   resources :microposts
-  resources :users
   resources :relationships, only: [:create, :destroy]
 end

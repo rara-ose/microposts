@@ -5,9 +5,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  validates :location, allow_blank: true, length: { minimum: 2, maximum: 20 }
   has_secure_password
-  has_many :microposts 
+  has_many :microposts
   has_many :following_relationships, class_name:  "Relationship",
                                      foreign_key: "follower_id",
                                      dependent:   :destroy
@@ -27,7 +26,7 @@ class User < ActiveRecord::Base
     following_relationship = following_relationships.find_by(followed_id: other_user.id)
     following_relationship.destroy if following_relationship
   end
-
+    
   # あるユーザーをフォローしているかどうか？
   def following?(other_user)
     following_users.include?(other_user)
