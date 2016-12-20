@@ -2,4 +2,5 @@
 <% @follower_users.each do |user| %>
   <%= user.name %>
   <br>
+<%= paginate @users %>
 <% end %>

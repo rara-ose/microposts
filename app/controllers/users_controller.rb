@@ -34,6 +34,7 @@ class UsersController < ApplicationController
   def followings
     @user  = User.find(params[:id])
     @following_users = @user.following_users
+    @users = User.order(:name).page(params[:page])
   end 
 
   def followers
@@ -54,4 +55,5 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     redirect_to root_path if @user != current_user
   end
+  
 end
