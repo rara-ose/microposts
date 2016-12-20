@@ -3,12 +3,12 @@ Rails.application.routes.draw do
    member do
      get :followings, :followers
    end
+   get 'page/:page', :action => :index, :on => :collection
  end
   root to: 'static_pages#home'
   get    'signup', to: 'users#new'
   get    'login' , to: 'sessions#new'
   get    'edit', to: 'users#edit'
-  get 'page/:page', :action => :index, :on => :collection
   post   'login' , to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
